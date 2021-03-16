@@ -6,6 +6,7 @@ import CloseButton from './styles/CloseButton';
 import Supreme from './styles/Supreme';
 import { useUser } from './User';
 import { useCart } from '../lib/cartState';
+import Checkout from './Checkout';
 
 export default function Cart() {
   const me = useUser();
@@ -25,6 +26,7 @@ export default function Cart() {
       </ul>
       <footer>
         <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+        {me?.cart && me?.cart.length > 0 && <Checkout />}
       </footer>
     </CartStyles>
   );
